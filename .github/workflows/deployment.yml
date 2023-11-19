@@ -1,7 +1,7 @@
 name: Lint Test Deploy
 on: push
 jobs:
-  install:
+  installAndBuild:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -19,7 +19,7 @@ jobs:
       - name: Build App
         run: npm run build
   deploy:
-    needs: testAndBuild
+    needs: installAndBuild
     runs-on: ubuntu-latest
     steps:
       - name: Deployment
