@@ -19,5 +19,7 @@ jobs:
       - name: build app
         run: npm run build
   deploy:
+    needs: test
+    runs-on: ubuntu-latest
       - name: Deployment
         run: echo "deploying..."
