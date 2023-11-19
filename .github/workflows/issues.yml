@@ -1,0 +1,8 @@
+name: Issue Workflow
+on: issues
+jobs: 
+  log:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Log into console
+          run: echo: "Issue related workflow"
