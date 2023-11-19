@@ -1,5 +1,5 @@
 name: Lint Test Deploy
-on: push
+on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,4 +24,3 @@ jobs:
     steps:
       - name: Deployment
         run: echo "deploying..."
-  

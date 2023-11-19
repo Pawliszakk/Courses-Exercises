@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log into console
-      run: echo: "Issue related workflow"
+        run: echo "Issue related workflow"
