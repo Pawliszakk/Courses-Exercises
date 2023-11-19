@@ -11,17 +11,17 @@ jobs:
         with: 
           node-version: 18
       - name: Install Dependencies
-         run: npm i
+        run: npm i
   test-build:
     needs: install
     runs-on: ubuntu-latest
-      steps: 
-        - name: Run Linting
-          run: npm run lint
-        - name: Run Tests
-          run: npm test
-        - name: Build App
-          run: npm run build
+    steps: 
+      - name: Run Linting
+        run: npm run lint
+      - name: Run Tests
+        run: npm test
+      - name: Build App
+        run: npm run build
   deploy:
     needs: test-build
     runs-on: ubuntu-latest
