@@ -2,7 +2,12 @@ name: Events
 on:
   pull_request:
     types: [opened, edited]
+    branches:
+      - master
   workflow_dispatch:
+  push: 
+    branches:
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
