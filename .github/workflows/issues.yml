@@ -1,8 +1,0 @@
-name: Issue Workflow
-on: issues
-jobs: 
-  log:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log Data
-        run: echo "${{ toJSON(github) }}"
