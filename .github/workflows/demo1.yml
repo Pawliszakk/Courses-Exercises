@@ -1,26 +1,33 @@
-name: Events
+name: Deploy website
 on:
-  pull_request:
-    types: [opened, edited]
+  push:
     branches:
-      - master
-  workflow_dispatch:
-  push: 
-    branches:
-      - master
+      - main
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Output event data
-        run: echo "${{toJSON(github.event)}}"
-      - name: get code
-        run: actions/checkout@v4
-      - name: install dependencies
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
         run: npm ci
+      - name: Lint code
+        run: npm run lint
       - name: Test code
         run: npm run test
-      - name: build code
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Build website
         run: npm run build
-      - name: deploy project
-        run: echo "deploying..."
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Deploying..."
