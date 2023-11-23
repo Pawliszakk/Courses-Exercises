@@ -10,8 +10,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: adres
-      MONGODB_USERNAME: nazwauzytkownika
-      MONGODB_PASSWORD: 123123123
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
@@ -30,11 +30,12 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "${{ github }}"
+        run: echo "${{ env.MONGODB_USERNAME}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |
-          echo "..."
+          echo "${{ env.MONGODB_USERNAME}}"
+          echo "${{ env.MONGODB_DB_NAME}}"
