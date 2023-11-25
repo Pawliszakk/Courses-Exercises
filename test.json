@@ -8,7 +8,7 @@
   "numFailedTests": 0,
   "numPendingTests": 0,
   "numTodoTests": 0,
-  "startTime": 1700860654307,
+  "startTime": 1700918799893,
   "success": true,
   "testResults": [
     {
@@ -32,12 +32,12 @@
           "fullName": " MainContent should show the help area after clicking the button",
           "status": "passed",
           "title": "should show the help area after clicking the button",
-          "duration": 52,
+          "duration": 48,
           "failureMessages": []
         }
       ],
-      "startTime": 1700860656357,
-      "endTime": 1700860656465,
+      "startTime": 1700918802239,
+      "endTime": 1700918802343,
       "status": "passed",
       "message": "",
       "name": "C:/Users/HARDPC/Desktop/Gh-actions/app/src/components/MainContent.test.jsx"
