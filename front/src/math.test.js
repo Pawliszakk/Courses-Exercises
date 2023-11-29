@@ -32,3 +32,30 @@ it('Should yield correct sum if an array is string numbers', () => {
 
 	expect(result).toBe(expectedResult);
 });
+
+it('Should yield 0 if an empty array is provided', () => {
+	const emptyArray = [];
+
+	const result = add(emptyArray);
+
+	expect(result).toBe(0);
+});
+
+it('Should throw an error if no value is provided to function', () => {
+	const resultFn = () => {
+		add();
+	};
+
+	expect(resultFn).toThrow();
+});
+
+it('should throw an error if provided multiple numbers instead of array', () => {
+	const num1 = 1;
+	const num2 = 2;
+	const num3 = 3;
+
+	const resultFn = () => {
+		add(num1, num2, num3);
+	};
+	expect(resultFn).toThrow('is not iterable');
+});
