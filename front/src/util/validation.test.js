@@ -15,15 +15,18 @@ describe('validateStringNotEpmty()', () => {
 });
 
 describe('validateNumber()', () => {
-	it('Should throw error if no value is provided or value is NaN', () => {
+	it('Should throw error if value is NaN', () => {
 		const value = '3wf';
 
 		const result = () => validateNumber(value);
 
-		const result2 = () => validateNumber();
-
 		expect(result).toThrow('Invalid number input');
-		expect(result2).toThrow('No value is provided');
+	});
+	
+	it('Should throw error if no value is provided', () => {
+		const result = () => validateNumber();
+
+		expect(result).toThrow('No value is provided');
 	});
 
 	it('Should throw error if value is numeric string', () => {

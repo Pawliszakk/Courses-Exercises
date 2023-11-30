@@ -9,7 +9,6 @@ it('Should change string value to a number value', () => {
 	expect(result).toBe(+numericString);
 });
 
-
 it('Should yield NaN for non transformable values', () => {
 	const input1 = 'wiowa2';
 	const input2 = {};
