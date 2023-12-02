@@ -9,8 +9,8 @@ describe('validateStringNotEpmty()', () => {
 
 		const result2 = () => validateStringNotEmpty();
 
-		expect(result).toThrow('must not be empty');
-		expect(result2).toThrow('must not be empty');
+		expect(result).toThrow('not be empty');
+		expect(result2).toThrow('not be empty');
 	});
 });
 
