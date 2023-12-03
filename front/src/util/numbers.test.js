@@ -28,8 +28,7 @@ describe('cleanNumbers()', () => {
 
 		const result = cleanNumbers(numbers);
 
-		expect(result[3]).toBe(6);
-		expect(result[3]).toBeTypeOf('number');
+		expect(result).toEqual([1, 2, 3, 6]);
 	});
 
 	it('Should yield error if wrong input value is provided', () => {
