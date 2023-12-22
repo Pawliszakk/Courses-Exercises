@@ -56,7 +56,6 @@ describe('Tasks management', () => {
 		cy.get('.task').should('have.length', 1);
 	});
 
-
 	it('should add new task after another task in correct order', () => {
 		cy.visit('http://localhost:5173/');
 
@@ -68,7 +67,15 @@ describe('Tasks management', () => {
 		cy.get('.modal').should('not.exist');
 		cy.get('.backdrop').should('not.exist');
 		cy.get('.task').should('have.length', 1);
-		cy.get('.task h2').contains('Task from cypress');
-		cy.get('.task p').contains('Summary from cypress');
+
+		cy.get('[data-cy="start-add-task-button"]').click();
+		cy.get('#title').type('second task');
+		cy.get('#summary').type('second task');
+		cy.get('.modal button').contains('Add Task').click();
+		cy.get('.modal').should('not.exist');
+		cy.get('.backdrop').should('not.exist');
+		cy.get('.task').should('have.length', 2);
+		cy.get('.task').eq(0).contains('Task from cypress');
+		cy.get('.task').eq(1).contains('second task');
 	});
 });
