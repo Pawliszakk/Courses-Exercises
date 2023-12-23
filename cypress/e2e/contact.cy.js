@@ -6,7 +6,7 @@ describe('contact form', () => {
 		cy.get('[data-cy="contact-input-message"]').type('Test message');
 		cy.get('[data-cy="contact-input-name"]').type('Test name');
 		cy.get('[data-cy="contact-input-email"]').type('testemail@o2.pl');
-
+		//then
 		cy.get('[data-cy="contact-btn-submit"]').as('submitBtn');
 
 		cy.get('@submitBtn').should('not.be.disabled').contains('Send Message');
