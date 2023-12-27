@@ -2,6 +2,7 @@
 
 describe('share location', () => {
 	it('should fetch the user location', () => {
+		//using stubs
 		cy.visit('/').then((win) => {
 			cy.stub(win.navigator.geolocation, 'getCurrentPosition')
 				.as('getUserPosition')
