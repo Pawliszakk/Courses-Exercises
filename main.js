@@ -10,7 +10,6 @@ function getUserLocation(event) {
 	const clickedBtn = event.target;
 	const container = clickedBtn.parentNode;
 	if ('geolocation' in navigator) {
-		console.log(window.navigator.geolocation);
 		clickedBtn.disabled = true;
 		clickedBtn.innerHTML = '<span class="loader"></span>';
 		navigator.geolocation.getCurrentPosition(
