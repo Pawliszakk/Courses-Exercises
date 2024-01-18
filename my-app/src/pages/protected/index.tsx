@@ -1,7 +1,9 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn, signOut, getSession } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function ProtectedPage() {
 	const { data: session } = useSession();
+
 	if (session) {
 		return (
 			<main>
@@ -9,7 +11,12 @@ export default function ProtectedPage() {
 					<h1>This is a Protected page</h1>
 					<p>Welcome {session?.user?.name}</p>
 					{session?.user?.image && (
-						<img src={session?.user?.image} alt="avatar of user" />
+						<Image
+							src={session?.user?.image}
+							alt="avatar of user"
+							width={300}
+							height={300}
+						/>
 					)}
 					<button onClick={() => signOut()}>Sign out</button>
 				</div>
@@ -29,3 +36,22 @@ export default function ProtectedPage() {
 		</main>
 	);
 }
+
+export const getServerSideProps = async (context: any) => {
+	const session = await getSession(context);
+	console.log(session);
+	if (!session) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {
+			session,
+		},
+	};
+};
