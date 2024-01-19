@@ -39,7 +39,6 @@ export default function ProtectedPage() {
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
-	console.log(session);
 	if (!session) {
 		return {
 			redirect: {
